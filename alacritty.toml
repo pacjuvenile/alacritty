@@ -1,0 +1,168 @@
+[general]
+import = [
+  # 字体配置
+  # "font/BlexMono.toml",
+  "font/Inconsolata.toml",
+  # "font/JetBrainsMono.toml",
+  # "font/RobotoMono.toml",
+  "colors/dark.toml",
+]
+working_directory = "None"  # 使用父进程工作目录
+live_config_reload = true   # 实时配置重载
+# ipc_socket = ture         # 使用alacritty消息提供IPC，仅限Unix
+
+# [env]
+# WINIT_X11_SCALE_FACTOR = "1.0"    # 添加环境变量
+
+[window]
+# dimensions = { columns = 0, lines = 0 }     # 终端分辨率（取决于字体）
+position = { x = 130, y = 130}              # 终端位置,"None"表示由wm控制窗口
+padding = { x= 3, y = 3 }                   # 窗口内空白
+dynamic_padding = false                     # 动态填充空白
+decorations = "Full"                        # 窗口装饰("Full" | "None" | "Transparent" | "Buttonless"),后两者仅限MacOS
+opacity = 0.9                               # 窗口透明度
+# blur = true                               # 模糊透明窗口后面内容，仅MacOS
+startup_mode = "Windowed"                   # 窗口启动模式("Windowed" | "Maximized" | "Fullscreen" | "SimpleFullscreen"),最后一个仅限MacOS
+title = "Alacritty"                         # 窗口标题
+dynamic_title = false                       # 终端更改标题
+# class = { instance = "Alacritty", general = "Alacritty" } # 设置窗口类，仅限Linux/BSD
+decorations_theme_variant = "Dark"          # 主题变体("Dark" | "Light" | "None")
+# resize_increments = true                  # 离散化调整窗口大小,仅限MacOS/X11
+# option_as_alt = "None"                    # 使Option键作为Alt键("OnlyLeft" | "OnlyRight" | "Both" | "None")，仅限MacOS
+level = "Normal"                            # 窗口级别("Normal" | "AlwaysOnTop")
+
+[scrolling]
+history = 10000     # 滚动回溯缓冲区最大行数
+multiplier = 3      # 每次滚动的行数
+
+[font]
+# 见font/
+
+[colors]
+# 见colors/
+
+[bell]
+animation = "Linear"        # 视觉铃动画效果("Ease" | "EaseOut" | "EaseOutSine" | "EaseOutQuad" | "EaseOutCubic" | "EaseOutQuart" | "EaseOutQuint" | "EaseOutExpo" | "EaseOutCirc" | "Linear")
+duration = 0                # 视觉提示动画持续时间(毫秒)
+color = "#ffffff"           # 视觉提示动画颜色
+command = "None"            # 响铃时执行的程序("None" | { program = "<string>", args = ["<string>",] })
+
+[selection]
+semantic_escape_chars = "\t,./;:'\"\\|`()[]{}"  # 语义分隔符
+save_to_clipboard = false                       # 是/否复制选中内容
+
+[cursor]
+style = { shape = "Beam", blinking = "Off" }    # 配置光标形态（shape = "Block" | "Underline" | "Beam"; blinking = "Never" | "Off" | "On" | "Always"）
+vi_mode_style = "None"                          # Vi模式光标形态({ <shape>, <blinking> } | "None") 
+blink_interval = 750                            # 光标闪烁时间（毫秒）
+blink_timeout = 5                               # 光标闪烁超时时间（秒）
+unfocused_hollow = true                         # 是/否在未获得焦点时将光标渲染为空心框
+thickness = 0.15                                # 光标相对于单元格的厚度
+
+[terminal]
+# shell及其参数(shell = "string" | { program = "string", args = ["string",] })
+# shell = "/bin/bash"         # Linux
+shell = "powershell"        # windows        
+osc52 = "OnlyCopy"          # 使用OSC 52转义序列（用于跨终端操作）写入系统剪切板的能力("Disable" | "OnlyCopy" | "OnlyPaste" | "CopyPaste")
+
+[mouse]
+hide_when_typing = false                    # 是/否输入时隐藏光标
+# binding = [{ <mouse>, <mods>, <mode>, <command> | <chars> | <action> },],其中mouse = "Left" | "Middle" | "Right" | "Forward" | "Back" | <integer>,action = <keyboard.bindings.action> | "ExpandSelection"         
+bindings = [    
+  { mouse = "Left", mods = "Control|Shift", action = "ExpandSelection"},    # 扩展选区
+  { mouse = "Right", action = "Paste" },                                    # 粘贴
+] 
+
+[hints]
+alphabet = "abcdefghijklmnopqrstuvwxyz"     # 定义提示标签按键序列
+# enabled = [{ <regex>, <hyperlinks>, <post_processing>, <persist>, <action>, <command>, <binding>, <mouse>},] 必须含regex 或hyperlinks，并且要有action或command。
+# regex = "string"用于匹配
+# hyperlinks = true | false 是/否使用默认的超链接捕获
+# post_processing = true | false 智能处理尾随字符
+# persist = true | false 是/否在操作后消除提示标签
+# action = "Copy" | "Paste" | "Select" | "MoveViModeCursor","Copy"将提示文本复制到剪切板，"Paste"将提示文本粘贴到终端或搜索，"Select"选中提示文本，"MoveViModCursor"移动Vi模式光标
+# command = "<string>" | { program = "<string>, args = ["<string>",] }"} # 当点击提示或按对应标签按键执行的命令
+# binding = { key = "<string>", mods = "<string>", mode = "<string>" } # 激活提示模式的快捷键
+# mouse = { mods = "<string>", enabled = true | false } # 按下修饰符，悬停在提示文本处，提示文本加下划线
+[[hints.enabled]]
+regex = "(ipfs:|ipns:|magnet:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001f\u007f-\u009f<>\"\\s{-}\\^<>`\\\\]+"
+post_processing = true
+binding = { key = "O", mods = "Control|Shift" }
+mouse = { enabled = true }
+persist = false
+command = { program = "cmd", args = ["/c", "start", ""]}    # Windows
+# command = "xdg-open"                                        # Linux
+[[hints.enabled]]
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`\\\\]+"
+post_processing = true
+binding = { key = "S", mods = "Control|Shift" }
+mouse = { enabled = true }
+persist = false
+action = "Select"
+
+[keyboard]
+# bindings = [{ <key>, <mods>, <mode>, <command> | <chars> | <action>},]
+# key = "<string>"
+# mods = "Control" | "Shift" | "Alt"
+# mode = "AppCursor" | "AppKeypad" | "Search" | "Alt" | "Vi"
+# command = "<string>" | { program = "<string>", args = ["<string>",] }
+# chars = "<string>"
+# actions = "<string>"
+bindings = [
+  # 常规
+  { key = "C", mods = "Control|Shift", action = "Copy" },   
+  { key = "V", mods = "Control|Shift", action = "Paste" },
+  { key = "0", mods = "Control", action = "ResetFontSize" },
+  { key = "=", mods = "Control", action = "IncreaseFontSize" },
+  { key = "-", mods = "Control", action = "DecreaseFontSize" },
+  { key = "L", mods = "Control", action = "ClearLogNotice" },
+  # Vi模式
+  { key = "Escape", mods = "Shift", mode = "~Vi",action = "ToggleViMode"},
+  { key = "Escape", mode = "Vi", action = "ClearSelection" },
+  { key = "I", mode = "Vi|~search", action = "ToggleViMode" },
+  # 光标移动
+  { key = "H", mode = "Vi|~search", action = "Left" },
+  { key = "J", mode = "Vi|~search", action = "Down" },
+  { key = "K", mode = "Vi|~search", action = "Up" },
+  { key = "L", mode = "Vi|~search", action = "Right" },
+  { key = "B", mode = "Vi|~search", action = "SemanticLeft" },
+  { key = "W", mode = "Vi|~search", action = "SemanticRight" },
+  { key = "E", mode = "Vi|~search", action = "SemanticRightEnd" },
+  { key = "0", mode = "Vi|~search", action = "First" },
+  { key = "$", mode = "Vi|~search", action = "Last" },
+  { key = "^", mode = "Vi|~search", action = "FirstOccupied" },
+  { key = "%", mode = "Vi|~search", action = "Bracket" },
+  { key = "H", mods = "Shift", mode = "Vi|~search", action = "High" },
+  { key = "M", mods = "Shift", mode = "Vi|~search", action = "Middle" },
+  { key = "L", mods = "Shift", mode = "Vi|~search", action = "Low" }, 
+  { key = "G", mode = "Vi|~search", action = "ScrollToTop" },
+  { key = "G", mods = "Shift", mode = "Vi|~search", action = "ScrollToBottom" },
+  # 选择复制
+  { key = "V", mode = "Vi|~search", action = "ToggleNormalSelection" },
+  { key = "V", mods = "Shift", mode = "Vi|~search", action = "ToggleLineSelection" },
+  { key = "V", mods = "Control", mode = "Vi|~search", action = "ToggleBlockSelection" },
+  { key = "V", mods = "Alt", mode = "Vi|~search", action = "ToggleSemanticSelection" },
+  { key = "Y", mode = "Vi|~search", action = "Copy" },
+  # 视图调整
+  { key = "Y", mods = "Control", mode = "Vi|~search", action = "ScrollLineUp" },
+  { key = "E", mods = "Control", mode = "Vi|~search", action = "ScrollLineDown" },
+  { key = "U", mods = "Control", mode = "Vi|~search", action = "ScrollHalfPageUp" },
+  { key = "D", mods = "Control", mode = "Vi|~search", action = "ScrollHalfPageDown" },
+  { key = "B", mods = "Control", mode = "Vi|~search", action = "ScrollPageUp" },
+  { key = "F", mods = "Control", mode = "Vi|~search", action = "ScrollPageDown" },
+  { key = "Z", mode = "Vi|~search", action = "CenterAroundViCursor" },
+  # 搜索打开
+  { key = "F", mode = "Vi|~search", action = "InlineSearchForward" },
+  { key = "F", mods = "Shift", mode = "Vi|~search", action = "InlineSearchBackward" },
+  { key = "T", mode = "Vi|~search", action = "InlineSearchForwardShort" },
+  { key = "T", mods = "Shift", mode = "Vi|~search", action = "InlineSearchBackwardShort" },
+  { key = ";", mode = "Vi|~search", action = "InlineSearchNext" },
+  { key = ",", mode = "Vi|~search", action = "InlineSearchPrevious" },
+  { key = "/", mode = "Vi|~search", action = "SearchForward" },
+  { key = "?", mode = "Vi|~search", action = "SearchBackward" },
+  { key = "N", mode = "Vi|~search", action = "SearchNext" },
+  { key = "N", mods = "Shift", mode = "Vi|~search", action = "Searchprevious" },
+  { key = "Enter", mode = "Vi|search", action = "SearchConfirm" },
+  { key = "Enter", mode = "Vi|~search", action = "Open" },
+]
+

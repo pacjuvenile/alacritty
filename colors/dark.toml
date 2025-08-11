@@ -1,0 +1,48 @@
+[colors]
+cursor = { text = "CellBackground", cursor = "CellForeground" }         # 普通模式终端光标颜色
+vi_mode_cursor = { text = "CellBackground", cursor = "CellForeground" } # vi模式终端光标颜色
+line_indicator = { foreground = "None", background = "None" }           # 临时位置标记颜色(前景色和背景色互补)
+footer_bar = { foreground = "#181818", background = "#d8d8d8" }         # 底部栏的颜色(前景色暗黑，背景色灰色)
+selection = { text = "CellBackground", background = "CellForeground" }  # 选区颜色
+# indexed_colors = [ { index = 16, color = "#ff00ff"},]                  # 索引颜色
+transparent_background_colors = false                                   # 全局背景透明/默认背景透明
+draw_bold_text_with_bright_colors = false                               # 是/否亮色绘制粗体
+[colors.primary]
+foreground = "#d8d8d8"      # 前景色(灰色)
+background = "#181818"      # 背景色(暗黑色)
+dim_foreground = "#828482"  # 暗淡前景色(浅黑色)
+bright_foreground = "None"  # 明亮前景色(使用正常前景色)
+[colors.search]
+matches = { foreground = "#181818", background = "#ac4242" }        # 普通匹配项的前景色(暗黑)，背景色(暗红)  
+focused_match = { foreground = "#181818", background = "#ac4242" }      # 焦点匹配项的前景色(暗黑)，背景色(暗红)
+[colors.hints]
+start = { foreground = "#181818", background = "#f4bf75" }      # 提示标签第一个字符前景色(暗黑），背景色（棕色）
+end = { foreground = "#181818", background = "#ac4242" }     # 提示标签非第一个字符前景色(暗黑)，背景色(暗红)
+[colors.normal]
+black = "#181818"
+white = "#d8d8d8"
+red = "#ac4242"
+yellow = "#f4bf75"
+green = "#90a959"
+blue = "#6a9fb5"
+cyan = "#75b5aa"
+magenta = "#aa759f"
+[colors.bright]
+black = "#6b6b6b"
+white = "#f8f8f8"
+red = "#c55555"
+yellow = "#feca88"
+green = "#aac474"
+blue = "#82b8c8"
+cyan = "#93d3c3"
+magenta = "#c28cb8"
+[colors.dim]
+black = "#0f0f0f"
+white = "#8e8e8e"
+red = "#712b2b"
+yellow = "#a17e4d"
+green = "#5f6f3a"
+blue = "#456877"
+cyan = "#4d7770"
+magenta = "#704d68"
+

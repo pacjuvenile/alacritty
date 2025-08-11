@@ -1,0 +1,12 @@
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" } # 常规体
+bold = { style = "Bold" }                                               # 加粗体
+italic = { style = "Italic" }                                           # 倾斜体
+bold_italic = { style = "Bold Italic" }                                 # 粗斜体
+size = 12                                                               # 字体大小
+offset = { x = 0, y = 3 }                                               # 字间距和行间距
+glyph_offset = { x = 0, y = 0 }                                         # 字体在其所在单元格的位置
+builtin_box_drawing = true                                              # 使用Alacritty内置字体渲染特定Unicode符号
+
+[window]
+dimensions = { columns = 120, lines = 30 }      # 终端分辨率
