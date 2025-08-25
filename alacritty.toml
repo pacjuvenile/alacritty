@@ -2,9 +2,12 @@
 import = [
   # 字体配置
   # "font/BlexMono.toml",
-  "font/Inconsolata.toml",
+  #"font/Inconsolata.toml",
   # "font/JetBrainsMono.toml",
+  "font/MapleMono.toml" ,
   # "font/RobotoMono.toml",
+
+  # 主题配置
   "colors/dark.toml",
 ]
 working_directory = "None"  # 使用父进程工作目录
