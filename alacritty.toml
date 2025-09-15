@@ -2,7 +2,7 @@
 import = [
   # 字体配置
   # "font/BlexMono.toml",
-  #"font/Inconsolata.toml",
+  # "font/Inconsolata.toml",
   # "font/JetBrainsMono.toml",
   "font/MapleMono.toml" ,
   # "font/RobotoMono.toml",
@@ -115,14 +115,14 @@ bindings = [
   # 常规
   { key = "C", mods = "Control|Shift", action = "Copy" },   
   { key = "V", mods = "Control|Shift", action = "Paste" },
-  { key = "0", mods = "Control", action = "ResetFontSize" },
-  { key = "=", mods = "Control", action = "IncreaseFontSize" },
-  { key = "-", mods = "Control", action = "DecreaseFontSize" },
-  { key = "L", mods = "Control", action = "ClearLogNotice" },
+  { key = "0", mods = "Control|Shift", action = "ResetFontSize" },
+  { key = "=", mods = "Control|Shift", action = "IncreaseFontSize" },
+  { key = "-", mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "L", mods = "Control|Shift", action = "ClearLogNotice" },
+  
   # Vi模式
-  { key = "Escape", mods = "Shift", mode = "~Vi",action = "ToggleViMode"},
+  { key = "Escape", mods = "Shift",action = "ToggleViMode"},
   { key = "Escape", mode = "Vi", action = "ClearSelection" },
-  { key = "I", mode = "Vi|~search", action = "ToggleViMode" },
   # 光标移动
   { key = "H", mode = "Vi|~search", action = "Left" },
   { key = "J", mode = "Vi|~search", action = "Down" },
