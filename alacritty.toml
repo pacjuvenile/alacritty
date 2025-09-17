@@ -115,9 +115,9 @@ bindings = [
   # 常规
   { key = "C", mods = "Control|Shift", action = "Copy" },   
   { key = "V", mods = "Control|Shift", action = "Paste" },
-  { key = "0", mods = "Control|Shift", action = "ResetFontSize" },
-  { key = "=", mods = "Control|Shift", action = "IncreaseFontSize" },
-  { key = "-", mods = "Control|Shift", action = "DecreaseFontSize" },
+  { key = "0", mods = "Control", action = "ResetFontSize" },
+  { key = "=", mods = "Control", action = "IncreaseFontSize" },
+  { key = "-", mods = "Control", action = "DecreaseFontSize" },
   { key = "L", mods = "Control|Shift", action = "ClearLogNotice" },
   
   # Vi模式
