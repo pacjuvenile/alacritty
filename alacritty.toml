@@ -12,7 +12,7 @@ import = [
 ]
 working_directory = "None"  # 使用父进程工作目录
 live_config_reload = true   # 实时配置重载
-# ipc_socket = ture         # 使用alacritty消息提供IPC，仅限Unix
+# ipc_socket = true         # 使用alacritty消息提供IPC，仅限Unix
 
 # [env]
 # WINIT_X11_SCALE_FACTOR = "1.0"    # 添加环境变量
